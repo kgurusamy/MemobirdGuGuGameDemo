@@ -107,18 +107,18 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     addChild(monster)
    
     // Determine speed of the monster
-    let actualDuration = random(min: CGFloat(10.0), max: CGFloat(20.0))
+    let actualDuration = random(min: CGFloat(2.0), max: CGFloat(5.0))
    
     // Create the actions
     let actionMove = SKAction.move(to: CGPoint(x: -monster.size.width/2, y: actualY), duration: TimeInterval(actualDuration))
     let actionMoveDone = SKAction.removeFromParent()
 
-    let loseAction = SKAction.run() {
+    /*let loseAction = SKAction.run() {
       let reveal = SKTransition.flipHorizontal(withDuration: 0.5)
       let gameOverScene = GameOverScene(size: self.size, won: false)
       self.view?.presentScene(gameOverScene, transition: reveal)
-    }
-    monster.run(SKAction.sequence([actionMove, loseAction, actionMoveDone]))
+    }*/
+    monster.run(SKAction.sequence([actionMove, /*loseAction, */actionMoveDone]))
    
   }
   
